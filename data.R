@@ -15,23 +15,15 @@ place_of_interest <- "Seattle"
 base_uri <- "https://api.yelp.com/v3"
 
 resource_business <- paste0("/businesses/search")
-resource_events <- paste0("/events")
-
 
 response_business <- GET(
   paste0(base_uri, resource_business),
   add_headers("Authorization" = paste("Bearer", yelp_key)),
-  query = list(location = place_of_interest)
-)
-response_events <- GET(
-  paste0(base_uri, resource_events),
-  add_headers("Authorization" = paste("Bearer", yelp_key)),
-  query = list(location = place_of_interest)
+  query = list(location = place_of_interest,
+               offset = 1)
 )
 
-parsed_data_business <- fromJSON(content(response_business, "text"))
-parsed_data_events <- fromJSON(content(response_events, "text"))
+parsed_data <- fromJSON(content(response_business, "text"))
 
-businesses <- parsed_data$businesses
-events <- parsed_data_events$events
+businesses <- parsed_data_business$businesses
 
