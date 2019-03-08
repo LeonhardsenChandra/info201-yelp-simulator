@@ -4,8 +4,8 @@ library("leaflet")
 #library("RColorBrewer")
 library("randomcoloR")
 
-businesses <- read.csv("businesses.csv", stringsAsFactors = FALSE)
-categories <- read.csv("categories.csv", stringsAsFactors = FALSE)
+businesses <- read.csv("/data/all_data.csv", stringsAsFactors = FALSE)
+categories <- read.csv("/data/categories.csv", stringsAsFactors = FALSE)
 
 # rename category name for join
 colnames(categories)[colnames(categories) == "title"] <- "category"
