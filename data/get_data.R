@@ -10,12 +10,17 @@ library("tidyr")
 source("api-keys.R")
 
 
-# Get Top 10 Most Visited U.S. Cities, and Seattle ------------------------
-
+# Get Top 10 Most Visited U.S. Cities, and Seattle
 cities <- c("New York, NY", "Los Angeles, CA", "Chicago, IL",
             "Philadelphia, PA", "San Diego, CA", "San Francisco, CA",
             "Seattle, WA", "Orange County, CA", "Atlanta, GA",
             "Las Vegas, NV", "Orlando, FL")
+
+# Get Top 12 Most Popular Cuisines in U.S, and Vegan
+cuisines <- c("American (New)", "American (Traditional)", "Chinese", "Mexican",
+              "Italian", "French", "Indian", "Thai", "Mediterranean", "Korean",
+              "Vietnamese", "Vegan")
+
 
 # Get Data ----------------------------------------------------------------
 
@@ -91,10 +96,21 @@ all_cities <- rbind(atlanta, chicago, lasvegas, losangeles, newyork,
 
 write.csv(all_cities, "all_cities.csv", row.names = FALSE)
 
+# Filter out cuisines
+filtered_all_cities <- all_cities %>% 
+  filter(category == cuisines[1] | category == cuisines[2] |
+           category == cuisines[3] | category == cuisines[4] |
+           category == cuisines[5] | category == cuisines[6] |
+           category == cuisines[6] | category == cuisines[7] |
+           category == cuisines[7] | category == cuisines[8] |
+           category == cuisines[9] | category == cuisines[10] |
+           category == cuisines[11] | category == cuisines[12])
 
+write.csv(filtered_all_cities, "filtered_all_cities.csv", row.names = FALSE)
 
 # Join Data with Categories -----------------------------------------------
 
+# all_cities
 all_cities <- read.csv("all_cities.csv", stringsAsFactors = FALSE)
 categories <- read.csv("categories.csv", stringsAsFactors = FALSE)
 
@@ -102,3 +118,15 @@ colnames(categories)[colnames(categories) == "title"] <- "category"
 joined_data <- full_join(all_cities, categories, by = "category")
 
 write.csv(joined_data, "all_cities_joined.csv", row.names = FALSE)
+
+# filtered_all_cities
+filtered_all_cities <- read.csv("filtered_all_cities.csv", 
+                                stringsAsFactors = FALSE)
+categories <- read.csv("categories.csv", stringsAsFactors = FALSE)
+
+colnames(categories)[colnames(categories) == "title"] <- "category"
+filtered_joined_data <- full_join(filtered_all_cities, categories, 
+                                  by = "category")
+
+write.csv(filtered_joined_data, "filtered_all_cities_joined.csv", 
+          row.names = FALSE)
