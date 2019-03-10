@@ -3,41 +3,43 @@ library("leaflet")
 #library("htmltools")
 #library("RColorBrewer")
 library("randomcoloR")
+library("htmltools")
 
-businesses <- read.csv("data/all_cities_joined.csv", stringsAsFactors = FALSE)
-categories <- read.csv("data/categories.csv", stringsAsFactors = FALSE)
-
-
-# only get top n categories
-top_categories <- businesses %>% 
-  group_by(parent_aliases) %>% 
-  count() %>%
-  arrange(-n) %>% 
-  ungroup()
-
-filtered_data <- joined_data %>% 
-  filter(parent_aliases %in% top_categories_list)
-
-# get n distinct colors for map
-palette <- distinctColorPalette(ncategories)
-palette_fn <- colorFactor(palette = "Set3", domain = businesses$parent_aliases)
-
-# visual map
-leaflet(data = businesses) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addCircleMarkers(
-    lat = ~coordinates.latitude,
-    lng = ~coordinates.longitude,
-    stroke = FALSE, # remove border from each circle
-    label = ~name,
-    radius = ~rating, # size varies with casualty
-    color = ~palette_fn(parent_aliases), # color varies by month
-    fillOpacity = 0.7
-  ) %>%
-  addLegend(
-    position = "bottomright",
-    title = paste0("Top ", 10, " Categories"),
-    pal = palette_fn, # the color palette described by the legend
-    values = ~parent_aliases, # the data values described by the legend
-    opacity = 1
-  )
+build_map <- function(city_select_box, cuisine_check_box) {
+  
+  businesses <- read.csv("data/filtered_all_cities.csv",
+                         stringsAsFactors = FALSE)
+  
+  businesses <- businesses %>% 
+    filter(location.city == city_select_box & category %in% cuisine_check_box) %>% 
+    mutate(desc = paste0(
+      "Name: ", name, "<br/>",
+      "Phone Number: ", display_phone, "<br/>",
+      "Price: ", price, "<br/>",
+      "Rating: ", rating, "<br/>",
+      "Address: ", location.address1
+    ))
+  
+  palette_fn <- colorFactor(palette = "Set3", domain = businesses$category)
+  
+  # visual map
+  leaflet(data = businesses) %>%
+    addProviderTiles("CartoDB.Positron") %>%
+    addCircleMarkers(
+      lat = ~coordinates.latitude,
+      lng = ~coordinates.longitude,
+      stroke = FALSE, # remove border from each circle
+      label = ~lapply(desc, HTML),
+      radius = ~rating, # size varies with casualty
+      color = ~palette_fn(category), # color varies by month
+      fillOpacity = 0.7
+    ) %>%
+    addLegend(
+      position = "bottomright",
+      title = "Cuisines",
+      pal = palette_fn, # the color palette described by the legend
+      values = ~category, # the data values described by the legend
+      opacity = 1
+    )
+  
+}
