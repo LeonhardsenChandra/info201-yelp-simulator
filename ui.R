@@ -1,6 +1,8 @@
 # ui.R
 
 library("shiny")
+library("randomcoloR")
+library("DT")
 
 # map.R -------------------------------------------------------------------
 
@@ -29,7 +31,23 @@ cuisine_check_box <- checkboxGroupInput(
   selected = cuisines
 )
 
+# chart.R -------------------------------------------------------------------
 
+source("chart.R")
+
+city_select_menu <- selectInput(
+  "city_select_menu",
+  label = h3("Metropolitan City"),
+  choices = cities,
+  selected = "Seattle"
+)
+
+cuisine_select_menu <- selectInput(
+  "cuisine_select_menu",
+  label = h3("Cuisine"),
+  choices = cuisines,
+  selected = cuisines
+)
 # Navigation Bar ----------------------------------------------------------
 
 shinyUI(navbarPage(
@@ -40,13 +58,27 @@ shinyUI(navbarPage(
     "Map",
     sidebarLayout(
       sidebarPanel(
-        h2(strong("Widgets")),
+        h2(strong("Options")),
         city_select_box,
         cuisine_check_box
       ),
       mainPanel(
         h2(strong("Map")),
         leafletOutput("map")
+      )
+    )
+  ),
+  tabPanel(
+    "Chart",
+    sidebarLayout(
+      sidebarPanel(
+        h2(strong("Options")),
+        city_select_menu,
+        cuisine_select_menu
+      ),
+      mainPanel(
+        h2(strong("Chart")),
+        DTOutput("chart")
       )
     )
   )
