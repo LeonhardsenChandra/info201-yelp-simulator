@@ -11,10 +11,10 @@ source("api-keys.R")
 
 
 # Get Top 10 Most Visited U.S. Cities, and Seattle
-cities <- c("New York, NY", "Los Angeles, CA", "Chicago, IL",
-            "Philadelphia, PA", "San Diego, CA", "San Francisco, CA",
-            "Seattle, WA", "Orange County, CA", "Atlanta, GA",
-            "Las Vegas, NV", "Orlando, FL")
+cities <- c("New York", "Los Angeles", "Chicago",
+            "Philadelphia", "San Diego", "San Francisco",
+            "Seattle", "Orange County", "Atlanta",
+            "Las Vegas", "Orlando")
 
 # Get Top 12 Most Popular Cuisines in U.S, and Vegan
 cuisines <- c("American (New)", "American (Traditional)", "Chinese", "Mexican",
@@ -93,6 +93,9 @@ seattle <- read.csv("Seattle, WA.csv", stringsAsFactors = FALSE)
 all_cities <- rbind(atlanta, chicago, lasvegas, losangeles, newyork,
                     orangecounty, orlando, philadelphia, sandiego,
                     sanfrancisco, seattle)
+
+all_cities <- all_cities %>% 
+  filter(location.city %in% cities)
 
 write.csv(all_cities, "all_cities.csv", row.names = FALSE)
 
