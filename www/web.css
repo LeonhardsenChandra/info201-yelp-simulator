@@ -1,0 +1,32 @@
+h2 {
+  font-family: 'Merriweather', serif;
+  text-decoration: bold;
+  color: #FF0000
+}
+
+h3 {
+  font-family: 'Merriweather', serif;
+  text-decoration: bold;
+  color: #000000
+}
+
+
+body {background-image: linear-gradient(#ffffff, #ff0000);}
+
+.navbar {
+    margin-bottom: 0;
+    background:#FF0000;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 3 !important;
+    height: 40px;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+.navbar li a, .navbar .navbar-brand {
+  font: 'Merriweather', serif;
+  color: #fffffff;
+}

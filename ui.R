@@ -48,14 +48,16 @@ cuisine_select_menu <- selectInput(
   choices = cuisines,
   selected = cuisines
 )
+
 # Navigation Bar ----------------------------------------------------------
 
 shinyUI(navbarPage(
+  theme = "web.css",
   "Whelp",
-  
   # Map Panel
   tabPanel(
     "Map",
+    width = 500,
     sidebarLayout(
       sidebarPanel(
         h2(strong("Options")),
@@ -70,6 +72,7 @@ shinyUI(navbarPage(
   ),
   tabPanel(
     "Chart",
+    width = 500,
     sidebarLayout(
       sidebarPanel(
         h2(strong("Options")),
