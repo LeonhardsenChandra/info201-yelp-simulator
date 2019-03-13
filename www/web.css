@@ -27,7 +27,16 @@ body {background-color: #ffffff;}
     color: #fffffff;
 }
 
-.navbar li a, .navbar .navbar-brand {
+/* Tab Panel */
+
+.navbar-default .navbar-nav > li > a {
   font: 'Verdana', serif;
-  color: #fffffff;
+  text-decoration: bold;
+	color: #ffffff;
+}
+
+.navbar-default .navbar-brand {
+  font: 'Verdana', serif;
+  text-decoration: bold;
+	color: #ffffff;
 }

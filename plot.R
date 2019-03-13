@@ -27,7 +27,8 @@ build_plot <- function(cuisine_select_menu3) {
   p <- plot_ly(
     data = by_major_cities, x = ~price_avg, y = ~rating_avg,
     type = "scatter", mode = "markers", marker = list(size = 10),
-    text = ~location.city
+    text = ~location.city,
+    color = ~rating_avg
   ) %>%
     # Use pipe function to pass the plotly object into the `layout` function
     layout(

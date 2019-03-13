@@ -88,14 +88,23 @@ shinyUI(navbarPage(
   tabPanel(
     "Map",
     width = 500,
+    h2("Visual Map"),
+    p("An", strong(em("interactive map")), "of roughly", strong("150"), 
+      "restaurants for each of the cities selected. Restaurants are",
+      "color-coded according to the type of cuisine, which were selected",
+      "by the popularity of the cuisines in the U.S. Difficulties in",
+      "obtaining the full data from all the cities and states in the U.S.",
+      "led us to choose only the most popular cities to visit, and the most",
+      "popular cuisines, which we feel is useful enough for our target",
+      "audience, which are mainly tourists and food adventurers."),
     sidebarLayout(
       sidebarPanel(
-        h2(strong("Options")),
+        h2("Options"),
         city_select_box,
         cuisine_check_box
       ),
       mainPanel(
-        h2(strong("Map")),
+        h2("Map"),
         leafletOutput("map")
       )
     )
@@ -104,13 +113,20 @@ shinyUI(navbarPage(
   tabPanel(
     "Word Cloud",
     width = 500,
+    h2("Word Cloud"),
+    p("A", strong(em("word cloud")), "of reviews of restaurants obtained",
+      "from the", strong("Yelp"), "API. As of now, only the three most",
+      "relevant reviews for each restaurant could be obtained, which were",
+      "identified to the restaurant and then categorized into the different",
+      "types of cuisines. We feel this could provide useful and interesting",
+      "insight onto the key words associated to a certain cuisine."),
     sidebarLayout(
       sidebarPanel(
-        h2(strong("Options")),
+        h2("Options"),
         cuisine_select_menu2
       ),
       mainPanel(
-        h2(strong("Word Cloud")),
+        h2("Cloud"),
         plotOutput("wordcloud")
       )
     )
@@ -121,12 +137,12 @@ shinyUI(navbarPage(
     width = 500,
     sidebarLayout(
       sidebarPanel(
-        h2(strong("Options")),
+        h2("Options"),
         city_select_menu,
         cuisine_select_menu
       ),
       mainPanel(
-        h2(strong("Chart")),
+        h2("Chart"),
         DTOutput("chart")
       )
     )
@@ -137,11 +153,11 @@ shinyUI(navbarPage(
     width = 500,
     sidebarLayout(
       sidebarPanel(
-        h2(strong("Options")),
+        h2("Options"),
         cuisine_select_menu3
       ),
       mainPanel(
-        h2(strong("Plot")),
+        h2("Plot"),
         plotlyOutput("plot")
       )
     )
