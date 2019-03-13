@@ -76,6 +76,14 @@ cuisine_select_menu3 <- selectInput(
 shinyUI(navbarPage(
   theme = "web.css",
   "Whelp",
+  # Intro Panel
+  tabPanel(
+    "Introduction",
+    width = 500,
+    mainPanel(
+      includeMarkdown("intro.md")
+    )
+  ),
   # Map Panel
   tabPanel(
     "Map",

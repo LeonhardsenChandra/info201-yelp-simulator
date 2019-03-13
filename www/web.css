@@ -1,17 +1,17 @@
 h2 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Verdana', serif;
   text-decoration: bold;
   color: #FF0000
 }
 
 h3 {
-  font-family: 'Merriweather', serif;
+  font-family: 'Verdana', serif;
   text-decoration: bold;
   color: #000000
 }
 
 
-body {background-image: linear-gradient(#ffffff, #ff0000);}
+body {background-color: #ffffff;}
 
 .navbar {
     margin-bottom: 0;
@@ -23,10 +23,11 @@ body {background-image: linear-gradient(#ffffff, #ff0000);}
     height: 40px;
     letter-spacing: 4px;
     border-radius: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Verdana', sans-serif;
+    color: #fffffff;
 }
 
 .navbar li a, .navbar .navbar-brand {
-  font: 'Merriweather', serif;
+  font: 'Verdana', serif;
   color: #fffffff;
 }
