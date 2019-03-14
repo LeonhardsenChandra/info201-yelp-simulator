@@ -149,17 +149,18 @@ shinyUI(navbarPage(
   ),
   # Plot Panel
   tabPanel(
-    "Plot",
+    "Scatter Plot",
     width = 500,
+    h2("Scatter Plot"),
+    p("A", strong(em("scatter plot")), "that compares the average price and
+          rating in the major cities across the country. The price ranges from 
+      1 (under $10 per person) to 4 (over $60 per person). The ratings are
+      based on the number of stars given by customers on the Yelp. As we 
+      can see, there're great variations for different cuisines in each
+      state."),
     sidebarLayout(
       sidebarPanel(
         h2("Options"),
-        p("A", strong(em("scatter plot")), "that compares the average price and
-          rating in the major cities across the country. The price ranges from 
-          1 (under $10 per person) to 4 (over $60 per person). The ratings are
-          based on the number of stars given by customers on the Yelp. As we 
-          can see, there're great variations for different cuisines in each
-          state."),
         cuisine_select_menu3
       ),
       mainPanel(
