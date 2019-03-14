@@ -1,6 +1,8 @@
 # info201-yelp-simulator
 # Leonhardsen Chandra, Isaac Kim, Jessica Luu, Grace Zhu, Jasmeen Kaur
 
+[Link to Shiny site](https://leonhardsen-chandra.shinyapps.io/info201-yelp-simulator/)
+
 # INFO 201 Project Proposal
 ## Project Description
 ### Summary

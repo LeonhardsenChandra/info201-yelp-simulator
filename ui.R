@@ -135,6 +135,15 @@ shinyUI(navbarPage(
   tabPanel(
     "Chart",
     width = 500,
+    h2("Table Chart"),
+    p("This page provides a descriptive", strong(em("visual chart")), "to ",
+      "compare the top restaurants selected by cuisine and city. The chart is",
+      "an easier way to compare restaurants in the chosen area with a",
+      "comprehensive list of features:", em("rating, number of reviews, price"),
+      em("range, contact information"), "and", em("location."), "This feature",
+      "is useful for exploring local cuisine, but also useful for planning",
+      "meals while traveling. Restaurants are arranged by the", 
+      strong("highest"), "ratings."),
     sidebarLayout(
       sidebarPanel(
         h2("Options"),
