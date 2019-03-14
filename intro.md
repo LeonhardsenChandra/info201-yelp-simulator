@@ -1,5 +1,5 @@
 # **Project Overview**
-##### *Group Members: Leonhardsen C., Isaac K., Jessica L., Grace Z., Jasmeen K.*
+##### *Group Members: Leonhardsen C., Isaac K., Jessica L., Grace Z.*
 
 ## Project Description
 ### Summary
