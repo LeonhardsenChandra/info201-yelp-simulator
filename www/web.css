@@ -4,15 +4,6 @@ h2 {
   color: #FF0000
 }
 
-h3 {
-  font-family: 'Verdana', serif;
-  text-decoration: bold;
-  color: #000000
-}
-
-
-body {background-color: #ffffff;}
-
 .navbar {
     margin-bottom: 0;
     background:#FF0000;
@@ -23,8 +14,6 @@ body {background-color: #ffffff;}
     height: 40px;
     letter-spacing: 4px;
     border-radius: 0;
-    font-family: 'Verdana', sans-serif;
-    color: #fffffff;
 }
 
 /* Tab Panel */
